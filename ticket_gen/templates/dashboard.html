@@ -1,26 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Dashboard</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
+<div class="card shadow-sm p-4 text-center">
   <h2>Welcome, {{ username }}</h2>
-
-  {% with messages = get_flashed_messages() %}
-    {% if messages %}
-      <div class="flash-messages">
-        {% for message in messages %}
-          <p>{{ message }}</p>
-        {% endfor %}
-      </div>
-    {% endif %}
-  {% endwith %}
-
-  <form action="{{ url_for('generate_ticket') }}" method="POST">
-    <button type="submit">Generate Ticket</button>
+  <p>Generate your ticket below:</p>
+  <form method="POST" action="{{ url_for('generate_ticket') }}">
+    <button type="submit" class="btn btn-primary btn-lg mt-3">Generate Ticket</button>
   </form>
-
-  <br>
-  <a href="{{ url_for('logout') }}">Logout</a>
-</body>
-</html>
+</div>
+{% endblock %}

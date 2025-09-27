@@ -1,29 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Admin Dashboard</title>
-</head>
-<body>
-  <h2>Verify Student Ticket</h2>
-
-  {% with messages = get_flashed_messages() %}
-    {% if messages %}
-      <div class="flash-messages">
-        {% for message in messages %}
-          <p>{{ message }}</p>
-        {% endfor %}
-      </div>
-    {% endif %}
-  {% endwith %}
-
-  <form action="{{ url_for('verify_ticket') }}" method="POST">
-    <label>Enter Ticket Token:</label>
-    <input type="text" name="token" required><br><br>
-
-    <button type="submit">Verify Ticket</button>
+{% extends "base.html" %}
+{% block content %}
+<div class="card shadow-sm p-4 text-center">
+  <h2>Verify Student Tickets</h2>
+  <form method="POST" action="{{ url_for('verify_ticket') }}">
+    <div class="mb-3">
+      <label for="token" class="form-label">Enter Ticket Token</label>
+      <textarea class="form-control" id="token" name="token" rows="3" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-success mt-2">Verify Ticket</button>
   </form>
-
-  <br>
-  <a href="{{ url_for('admin_logout') }}">Logout</a>
-</body>
-</html>
+</div>
+{% endblock %}
