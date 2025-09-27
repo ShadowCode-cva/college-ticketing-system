@@ -1,5 +1,5 @@
 from flask import Flask, request, flash, get_flashed_messages, session, render_template, redirect, url_for
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import jwt
 import secrets
 
@@ -77,7 +77,7 @@ def generate_ticket():
         return redirect(url_for('login'))
 
     username = session['user']
-    expiration = datetime.now(datetime.timezone.utc()) + timedelta(minutes=10)
+    expiration = datetime.now(timezone.utc) + timedelta(minutes=10)
     token = jwt.encode({"user": username, "exp": expiration}, SECRET_KEY, algorithm="HS256")
     tickets[username] = token
 
