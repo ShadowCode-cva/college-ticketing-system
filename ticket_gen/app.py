@@ -77,7 +77,7 @@ def generate_ticket():
         return redirect(url_for('login'))
 
     username = session['user']
-    expiration = datetime.utcnow() + timedelta(minutes=10)
+    expiration = datetime.now(datetime.timezone.utc()) + timedelta(minutes=10)
     token = jwt.encode({"user": username, "exp": expiration}, SECRET_KEY, algorithm="HS256")
     tickets[username] = token
 

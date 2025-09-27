@@ -3,7 +3,7 @@
 <div class="card shadow-sm p-4 text-center">
   <h2>Welcome, {{ username }}</h2>
   <p>Generate your ticket below:</p>
-  <form method="POST" action="{{ url_for('generate_ticket') }}">
+  <form method="GET" action="{{ url_for('generate_ticket') }}">
     <button type="submit" class="btn btn-primary btn-lg mt-3">Generate Ticket</button>
   </form>
 </div>
