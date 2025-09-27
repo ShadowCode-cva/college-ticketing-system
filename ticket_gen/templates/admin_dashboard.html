@@ -2,7 +2,7 @@
 {% block content %}
 <div class="card shadow-sm p-4 text-center">
   <h2>Verify Student Tickets</h2>
-  <form method="POST" action="{{ url_for('verify_ticket') }}">
+  <form method="POST" action="{{ url_for('admin_dashboard') }}">
     <div class="mb-3">
       <label for="token" class="form-label">Enter Ticket Token</label>
       <textarea class="form-control" id="token" name="token" rows="3" required></textarea>
