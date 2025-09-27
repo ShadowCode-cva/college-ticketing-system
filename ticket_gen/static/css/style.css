@@ -1,0 +1,13 @@
+body {
+  background-color: #f4f6f9;
+}
+
+.card {
+  max-width: 500px;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
